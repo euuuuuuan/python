@@ -280,15 +280,15 @@
 #  ...
 
 # 상수 정의
-BREAKING_YEAR = 2016
-APARTMENT_RPICE_2016 = 1100000000
-INTEREST_RATE = 0.12
-
-# 변수 정의
-year = 1988  # 연도 (year): 1988부터 2016까지 바뀜
-bank_balance = 50000000  # 은행 잔액 (bank_balance): 50000000으로 시작해서 매년 이자가 쌓임
-# bank_balance = int(bank_balance * (1 + INTEREST_RATE))
-year_after = 0
+# BREAKING_YEAR = 2016
+# APARTMENT_RPICE_2016 = 1100000000
+# INTEREST_RATE = 0.12
+#
+# # 변수 정의
+# year = 1988  # 연도 (year): 1988부터 2016까지 바뀜
+# bank_balance = 50000000  # 은행 잔액 (bank_balance): 50000000으로 시작해서 매년 이자가 쌓임
+# # bank_balance = int(bank_balance * (1 + INTEREST_RATE))
+# year_after = 0
 
 # while 반복문의 동작 부분에는 몇 번 들어가야 할까요?
 #
@@ -401,18 +401,177 @@ year_after = 0
 
 # 모법 답안
 # 상수 정의
-INTEREST_RATE = 0.12
-APARTMENT_PRICE_2016 = 1100000000
+# INTEREST_RATE = 0.12
+# APARTMENT_PRICE_2016 = 1100000000
+#
+# # 변수 정의
+# year = 1988
+# bank_balance = 50000000
+#
+# while year < 2016:
+#     bank_balance = bank_balance * (1 + INTEREST_RATE)
+#     year += 1
+#
+# if bank_balance > APARTMENT_PRICE_2016:
+#     print("{}원 차이로 동일 아저씨 말씀이 맞습니다.".format(int(bank_balance - APARTMENT_PRICE_2016)))
+# else:
+#     print("{}원 차이로 미란 아주머니 말씀이 맞습니다.".format(int(APARTMENT_PRICE_2016 - bank_balance)))
 
-# 변수 정의
-year = 1988
-bank_balance = 50000000
+# 실습 5 설명
+# 피보나치 수열(Fibonacci Sequence)이라고 들어 보셨나요?
+# 1,1,2,3,5,8,13,21,34,55,...
+# 우선 피보나치 수열의 1번 항과 2번 항은 각각 1입니다.
+# 3번 항부터는 바로 앞 두 항의 합으로 계산됩니다.
+# 예를 들어서 3번 항은 1번 항(1)과 2번 항(1)을 더한 2이며,
+# 4번 항은 2번 항(1)과 3번 항(2)을 더한 3입니다.
+#
+# 피보나치 수열의 첫 50개 항을 차례대로 출력하는 코드를 작성해 보세요.
 
-while year < 2016:
-    bank_balance = bank_balance * (1 + INTEREST_RATE)
-    year += 1
+# 실습 결과
+# 1
+# 1
+# 2
+# 3
+# 5
+# 8
+# 13
+# 21
+# .
+# .
+# .
+# 4807526976
+# 7778742049
+# 12586269025
 
-if bank_balance > APARTMENT_PRICE_2016:
-    print("{}원 차이로 동일 아저씨 말씀이 맞습니다.".format(int(bank_balance - APARTMENT_PRICE_2016)))
-else:
-    print("{}원 차이로 미란 아주머니 말씀이 맞습니다.".format(int(APARTMENT_PRICE_2016 - bank_balance)))
+# 나의 문제 해결
+previous = 0
+current = 1
+i = 0
+while i <= 24:
+    print(current) # 1
+    previous += current
+    print(previous) # 1
+    current += previous
+    i += 1
+
+# 해설
+# 일단 50개의 항이 조금 부담될 수 있으니, 10개의 항만 출력하는 것을 목표로 합시다.
+# 어차피 10개를 제대로 출력할 수 있으면, 50개도 아무런 문제없이 출력할 수 있을 테니까요.
+
+# 반복문 틀 작성
+# 10개의 항을 출력하기 위해서는 반복문을 열 번 돌아야겠죠?
+# 열 번 도는 반복문부터 작성해 봅시다.
+
+# i = 1
+#
+# while i <= 10:
+#     i += 1
+
+# 필요한 변수 정의
+# 피보나치 수열의 항은 앞선 두 항의 합으로 계산되는데요. 따라서
+# 피보나치 수열의 항들을 순서대로 출력하기 위해서는 늘 마지막 두 항을 변수에 보관해야 합니다.
+#
+# '현재 항'은 변수 current에, 그리고 '직전 항'은 변수 previous에 저장하겠습니다.
+# 처음에는 current를 1로 설정하고 previous를 0으로 설정하면 되겠죠?
+
+# previous = 0
+# current = 1
+# i = 1
+#
+# while i <= 10:
+#     # 우리가 반복적으로 무엇을 해야 할까요?
+#     i += 1
+# 이제 while 반복문의 동작 부분만 채워 넣으면 됩니다.
+
+# 동작 부분 채워 넣기
+# 동작 부분에서 해야 할 일은 크게 두 가지입니다.
+# current를 출력
+# previous와 current를 적절히 수정
+# 첫 번째 내용은 그냥 print(current)를 하면 되니까 먼저 채워 넣겠습니다.
+
+# previous = 0
+# current = 1
+# i = 1
+#
+# while i <= 10:
+#     print(current)
+#     # previous와 current를 적절히 수정
+#     i += 1
+
+# previous와 current 수정하기
+# 두 번째가 약간 헷갈리는 부분인데요.
+# 동작 부분에서 previous와 current를 어떻게 수정할 수 있을까요?
+# 일단 단순하게 생각하면 이렇습니다.
+
+# previous ← current
+# current ← current + previous
+
+# 그리고 위 로직을 코드로 나타내면 아래와 같습니다.
+# previous = current
+# current = current + previous
+
+# 그런데 사실 위 코드처럼 하면 문제가 생깁니다.
+# 코드의 순서대로 한번 따라가 볼게요.
+# previous = current를 하면, previous와 current가 같은 값을 저장하게 됩니다.
+# 그리고 기존의 previous 값은 잃어버리게 되죠.
+#
+# 예를 들어서 previous가 정수 2고 current가 정수 3이라고 생각해 보세요.
+# previous = current를 하면 어떻게 되나요?
+# previous는 정수 3으로 바뀌고, current도 정수 3이죠? 기존 previous에 있던
+# 정수 2는 완전히 잃어버리게 됩니다.
+#
+# 이 문제를 해결하기 위해서, 임시 보관소 역할을 할 변수를 만들어야 합니다.
+
+# temp = previous  # previous를 임시 보관소 temp에 저장
+# previous = current
+# current = current + temp  # temp에는 기존 previous 값이 저장돼 있음
+
+# 이렇게 하면 이제 문제없이 previous와 current를 수정할 수 있습니다.
+# 코드를 실행하면 아래와 같이 출력이 될 텐데요.
+
+# 1
+# 1
+# 2
+# 3
+# 5
+# 8
+# 13
+# 21
+# 34
+# 55
+
+# 이제 while i <= 10:을 while i <= 50:으로 수정하기만 하면 됩니다.
+
+# 모범 답안
+# previous = 0
+# current = 1
+# i = 1
+#
+# while i <= 50:
+#     print(current)
+#     temp = previous  # previous를 임시 보관소 temp에 저장
+#     previous = current
+#     current = current + temp  # temp에는 기존 previous 값이 저장돼 있음
+#     i += 1
+
+# 참고 사항
+# 참고로 이 코드를 더 깔끔하게 쓰는 방법이 있는데요. 아래 코드를 봐 주세요.
+# previous = 0
+# current = 1
+# i = 1
+#
+# while i <= 50:
+#     print(current)
+#     previous, current = current, current + previous
+#     i += 1
+# 훨씬 낫죠? 그런데 제가 굳이 temp를 사용하는 방식을 먼저 말씀드린 이유가 있습니다.
+#
+# 저렇게 한 줄로 깔끔하게 쓸 수 있는 것은 파이썬에서 제공되는 멋진 문법인데요.
+# 코드가 깔끔해지기 때문에 저도 웬만하면 이렇게 작성합니다.
+# 하지만 이건 대부분 프로그래밍 언어에서 제공되지 않는 문법입니다.
+# 여러분이 이 방식만 배우면, 다른 프로그래밍 언어로는 이 같은 문제를 풀지 못할 수도 있다는 거죠.
+# 반면 temp 같은 임시 보관소를 사용하는 방법은 어떤 언어에도 적용 가능하다는 장점이 있습니다.
+#
+# 그래도 파이썬에서 유용하게 쓸 수 있는 문법임에는 틀림이 없습니다.
+# 이 토픽에서는 프로그래밍에서 전반적으로 쓰는 개념들에 집중하고,
+# 다른 과제에서 위 방법에 대해 좀 더 살펴보겠습니다.
