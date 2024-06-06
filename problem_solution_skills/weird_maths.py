@@ -213,16 +213,16 @@
 # 9 * 9 = 81
 
 # 나의 문제 해결
-i = 1  # 앞단
-s = 1  # 뒷단
-total = 0  # 결과값
-while i <= 9:
-    s = 1
-    while s <= 9:
-        total = i * s
-        print(f"{i} * {s} = {total}")
-        s += 1
-    i += 1
+# i = 1  # 앞단
+# s = 1  # 뒷단
+# total = 0  # 결과값
+# while i <= 9:
+#     s = 1
+#     while s <= 9:
+#         total = i * s
+#         print(f"{i} * {s} = {total}")
+#         s += 1
+#     i += 1
 
     # while s <= N:
     #     i += 1
@@ -279,13 +279,45 @@ while i <= 9:
 #  2년 뒤 은행 잔고: 50,000,000 * (1 + 12%) * (1 + 12%) = 62,720,000 원
 #  ...
 
+BREAKING_YEAR = 2016
+year = 1988  # 연도 (year): 1988부터 2016까지 바뀜
+bank_balance = 50000000  # 은행 잔액 (bank_balance): 50000000으로 시작해서 매년 이자가 쌓임
+INTEREST_RATE = 0.12
+bank_balance = int(bank_balance * (1 + INTEREST_RATE))
+APARTMENT_RPICE_2016 = 1100000000
+year_after = 0
+
+# while 반복문의 동작 부분에는 몇 번 들어가야 할까요?
+#
+# 1988년에서 1989년으로 넘어갈 때 이자가 쌓여야겠죠?
+# 마찬가지로 1989년에서 1990년으로 넘어갈 때도 이자가 쌓여야 합니다.
+# 이런 식으로 2015년에서 2016년으로 넘어갈 때까지 동작 부분으로 들어가서
+# 이자가 쌓여야 하는 거죠.
+
+while year < BREAKING_YEAR:
+    year_after += 1
+    print(f"{year_after}년 뒤 은행 잔고: {bank_balance} 원")
+    year += 1
+    bank_balance += bank_balance  # 1년뒤 56,000,000 // 2년뒤 62,720,000
+    # print(bank_balance)
+
+# while year < BREAKING_YEAR:
+#     year_after += 1
+#     print(f"{year_after}년 뒤 은행 잔고: {bank_balance} 원")
+#     year += 1
+#     bank_balance += bank_balance0
+#     print(bank_balance)
+#     if bank_balance < APARTMENT_RPICE_2016:
+#         print("{}원 차이로 미란 아주머니 말씀이 맞습니다.".format(APARTMENT_RPICE_2016 - bank_balance))
+# else:
+#     print("{}원 차이로 동일 아저씨 말씀이 맞습니다.".format(bank_balance - APARTMENT_RPICE_2016))
 # 2. 미란 아주머니 의견
 # > 아파트 가치 상승을 고려하여 당시 매매가 5000만 원인 은마 아파트 사기
-# 2016년 기준 은마아파트의 매매가는 11억 원인데요. 1988년 은행에 5,000만 원을 넣었을 경우 2016년에는 얼마가 있을지 계산하여,
+# 2016년 기준 은마아파트의 매매가는 11억 원인데요.
+# 1988년 은행에 5,000만 원을 넣었을 경우 2016년에는 얼마가 있을지 계산하여,
 #
 # 은행에 저축해 둔 금액이 더 크면, *원 차이로 동일 아저씨 말씀이 맞습니다.를 출력하고
-# 은마아파트의 가격이 더 크면, *원 차이로 미란 아주머니 말씀이 맞습니다.
-# 를 출력하는 코드를 작성해 보세요.
+# 은마아파트의 가격이 더 크면, *원 차이로 미란 아주머니 말씀이 맞습니다. 를 출력하는 코드를 작성해 보세요.
 
 # 유의사항
 # 1. 금액은 정확한 표기를 위해 아래 값을 복사해서 이용하시는 걸 권장합니다.
