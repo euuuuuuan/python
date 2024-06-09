@@ -6,3 +6,4 @@ wallet: 지갑
 backpack: 책가방
 soap: 비누
 bicycle: 자전거
+help: 돕다
