@@ -23,15 +23,25 @@
 import random
 
 
-def genderate_numbers(count):
-    lotto_numbers = []
-    for _ in range(count):
-        if _ not in lotto_numbers:  # 해당 데이터가 없다면 추가해주고, 이미 존재한다면 넘어간다.
-            lotto_numbers.append(random.randint(1, 45))
-    return lotto_numbers
+def generate_numbers(count):
+    # lotto_numbers = []
+    # for _ in range(count):
+    # if _ not in lotto_numbers:
+    # 해당 데이터가 없다면 추가해주고, 이미 존재한다면 넘어간다.
+    # 문제점 1 : 중복이 나올경우 리스트 길이값이 짧아진다.
+    # lotto_numbers.append(random.randint(1, 45))
+    # lotto_numbers.append(random.sample(range(1, 45), count))
+    # 해결책 : sample 함수 이용, 코드의 간략화
+    # return lotto_numbers
+
+    # 문제점 2 : 아웃풋이 [[20, 22, 1, 28, 38, 40]] 로 출력된다.
+    # random.sample 함수의 경우 이미 count개의 고유한 요소를 포함하는 리스트를 반환한다.
+    # 따라서 바로 리턴을 해주어야 해결 가능하다.
+
+    return random.sample(range(1, 45), count)
 
 
-print(genderate_numbers(6))
+print(f"중복없는 난수 생성: {generate_numbers(6)}")
 
 
 #  _ 언더바는 보통 반복을 위한 카운터 변수로 사용되는데,
@@ -64,7 +74,7 @@ print(genderate_numbers(6))
 # 앞서 정의한 generate_numbers() 함수를 잘 활용하면, 간결하게 작성할 수 있습니다.
 # 나의 문제 해결
 def draw_winning_number():
-    plus_numbers = genderate_numbers(6)
+    plus_numbers = generate_numbers(6)
     plus_numbers.append(random.randint(1, 45))
     return plus_numbers
 
@@ -90,15 +100,16 @@ print(draw_winning_number())
 # 1
 # 이번에는 14, 1개만 겹치기 때문에 1이 나왔습니다.
 def count_matching_numbers():
-    list_1 = genderate_numbers()
-    print(list_1)
-    list_2 = genderate_numbers()
-    print(list_2)
+    list_1 = generate_numbers(6)
+    print("list_1: " + str(list_1))
+    list_2 = generate_numbers(6)
+    print("list_2: " + str(list_2))
     common_numbers = []
     for com in list_1:
         if com in list_2:
             common_numbers.append(com)
     return common_numbers
+
 
 print(len(count_matching_numbers()))
 
