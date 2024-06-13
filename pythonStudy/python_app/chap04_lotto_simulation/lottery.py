@@ -18,10 +18,8 @@ def generate_numbers(n):
 
 def draw_winning_numbers():
     """당첨 번호 뽑기"""
-    plus_numbers = generate_numbers(6)
-    plus_numbers.sort()
-    plus_numbers.append(random.sample(range(1, 45), 1)[0])
-    return plus_numbers
+    winning_numbers = generate_numbers(7)
+    return sorted(winning_numbers[:6]) + winning_numbers[6:]
 
 def count_matching_numbers(numbers, winning_numbers):
     """겹치는 번호 개수"""
