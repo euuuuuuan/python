@@ -16,86 +16,64 @@
 #     data = json.load(f)
 # print(data)
 
+# 나의 문제 해결
+import json
+
+#
+# data = None
+# balance = 10000000
+# count = 0
+#
+#
+# # 함수 : 매매 신호 생성
+# def generate_signals(ma20, ma60):
+#     signals = []
+#     for i in range(1, len()):
+#         if ma20[i - 1] < ma60[i - 1] and ma20[i] >= ma60[i]:
+#             signals.append("Buy")
+#         elif ma20[i - 1] >= ma60[i - 1] and ma20[i] < ma60[i]:
+#             signals.append("Sell")
+#         else:
+#             signals.append("Hold")
+#         return signals
+
 # 1. 백테스트
 # 먼저 이동 평균선을 계산하는 함수를 만들어 봅시다.
 #
 # 이동 평균선을 가지고 매매 신호를 판단하는 함수를 만들어 보세요.
 #
 # JSON 파일을 불러옵니다.
+# with open("파일 경로", "r") as f:
+#     for line in f:
+#         print(line)
 
+# 이 변수는 나중에 JSON 파일에서 읽어온 데이터를 저장할 용도로 사용됩니다.
+# with open("sample.json", "r") as f:
+    # 파일을 읽기 모드("r")로 열고 파일 핸들을
+    # f라는 이름의 변수에 할당합니다. with 구문을 사용하면
+    # 파일을 열고 닫는 과정을 자동으로 처리할 수 있습니다.
+    # data = json.load(f)
+    # 파일 핸들 f에서 JSON 데이터를 읽어와 파이썬 객체로 변환합니다.
+    # 이렇게 하면 JSON 형식의 데이터가 파이썬에서
+    # 사용할 수 있는 딕셔너리나 리스트와 같은 객체로 변환됩니다.
 
+# print(f"data 출력결과 : {data}")
+#
+# ma20 = calculate_moving_average(data, 20)
+# print(f"ma20 출력결과 : {ma20}")
+#
+# ma60 = calculate_moving_average(data, 60)
+# print(f"ma60 출력결과 : {ma60}")
+
+# signals = generate_signals(ma20, ma60)
+# print(f"signals 출력결과 : {signals}")
 # 주어진 데이터에서 현재가만 가져와서 이동 평균선을 계산합니다.
 #
 # 이동 평균선 매매 전략을 실행합니다.
 #
-# 잔고 금액을 설정하고,
-# 전략에 따라 매매를 진행하면서 각 단계의 수익률을 계산합니다.
-
-# 2. 자동 매매 구현하기
-# # 우선 API로 현재 가격을 가져오는 함수를 작성해 보세요.
-# #
-# # while 반복문과 time 모듈의 sleep() 함수를 사용해서 1분마다 반복하는 코드를 작성합니다.
-#
-#
-# from time import sleep
-#
-# while True:
-#     # 1분마다 실행할 코드
-#     sleep(60)
-# 백테스트를 하면서 만들었던 함수들을 가져와서 자동 매매에 적용해 봅니다.
-#
-# 실제 API 리퀘스트를 보내는 함수를 작성해 보고, 이 함수를 while 반복문에 반영해 봅니다.
+# 잔고 금액을 설정하고, 전략에 따라 매매를 진행하면서 각 단계의 수익률을 계산합니다.
 
 
-# 나의 문제 해결
-import json
-
-data = None
-balance = 10000000
-count = 0
-# 함수 : 이동 평균선 값 계산
-def calculate_moving_average(data, window_size):
-    moving_averages = []
-    for i in range(window_size, len(data)):
-        avg = sum(data[i - window_size:i]) / window_size
-        moving_averages.append(avg)
-    return moving_averages
-
-# 함수 : 매매 신호 생성
-def generate_signals(ma20, ma60):
-    signals = []
-    for i in range(1, len()):
-        if ma20[i - 1] < ma60[i - 1] and ma20[i] >= ma60[i]:
-            signals.append("Buy")
-        elif ma20[i - 1] >= ma60[i - 1] and ma20[i] < ma60[i]:
-            signals.append("Sell")
-        else:
-            signals.append("Hold")
-        return signals
-
-
-
-# 이 변수는 나중에 JSON 파일에서 읽어온 데이터를 저장할 용도로 사용됩니다.
-with open("sample.json", "r") as f:
-    # 파일을 읽기 모드("r")로 열고 파일 핸들을
-    # f라는 이름의 변수에 할당합니다. with 구문을 사용하면
-    # 파일을 열고 닫는 과정을 자동으로 처리할 수 있습니다.
-    data = json.load(f)
-    # 파일 핸들 f에서 JSON 데이터를 읽어와
-    # 파이썬 객체로 변환합니다.
-    # 이렇게 하면 JSON 형식의 데이터가 파이썬에서
-    # 사용할 수 있는 딕셔너리나 리스트와 같은 객체로 변환됩니다.
-
-print(f"data 출력결과 : {data}")
-
-ma20 = calculate_moving_average(data, 20)
-print(f"ma20 출력결과 : {ma20}")
-
-ma60 = calculate_moving_average(data, 60)
-print(f"ma60 출력결과 : {ma60}")
-
-signals = generate_signals(ma20, ma60)
-print(f"signals 출력결과 : {signals}")
 
 
 

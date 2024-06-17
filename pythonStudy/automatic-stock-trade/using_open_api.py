@@ -132,7 +132,10 @@
 #
 # mtpqnb965-image.png
 #
-# 우선 기본 정보를 보면 리퀘스트를 보낼 주소가 /uapi/domestic-stock/v1/quotations/inquire-time-itemchartprice라는 걸 알 수 있고요, 메소드는 GET을 쓰면 되는 것 같습니다. 그리고 주고받는 데이터 형식은 JSON인 것 같습니다.
+# 우선 기본 정보를 보면 리퀘스트를 보낼 주소가
+# /uapi/domestic-stock/v1/quotations/inquire-time-itemchartprice
+# 라는 걸 알 수 있고요, 메소드는 GET을 쓰면 되는 것 같습니다.
+# 그리고 주고받는 데이터 형식은 JSON인 것 같습니다.
 #
 # i5v1mdiu2-image.png
 #
