@@ -129,5 +129,5 @@ print(s_4, b_4)
 #
 #
 # for i in range(3):
-#     if guesses[i] == solution[i]:
+#     if guesses[i] == clue_for_solution[i]:
 #         strike_count += 1

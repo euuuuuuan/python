@@ -2,7 +2,7 @@
 # 이제 스트라이크 수와 볼 수를 알려 주는 get_score() 함수를 작성할 것입니다. 이 함수는 두 개의 파라미터를 받는데요.
 #
 # guesses: 유저가 뽑은 번호 3개가 담긴 리스트
-# solution: 컴퓨터가 뽑은 정답 번호 3개가 담긴 리스트
+# clue_for_solution: 컴퓨터가 뽑은 정답 번호 3개가 담긴 리스트
 # 두 리스트를 비교해서 스트라이크와 볼의 개수를 계산하고 리턴합니다. 여기서 새로운 개념을 알려 드릴게요. 파이썬의 함수에서 여러 값을 리턴하고 싶으면 이렇게 할 수 있습니다.
 #
 #
@@ -60,56 +60,56 @@
 #
 #
 # for i in range(3):
-#     if guesses[i] == solution[i]:
+#     if guesses[i] == clue_for_solution[i]:
 #         strike_count += 1
 # 볼 판단 방법
 # guesses의 인덱스 i에 있는 숫자가 '볼'이기 위해서는 이 두 가지 조건을 충족해야 합니다.
 #
-# 이 숫자가 solution 안에도 있어야 한다.
+# 이 숫자가 clue_for_solution 안에도 있어야 한다.
 # 이 숫자가 solution의 인덱스 i에 있으면 안 된다.
 # 그러면 코드를 이렇게 작성할 수 있습니다.
 #
 #
 # for i in range(3):
-#     if guesses[i] in solution and guesses[i] != solution[i]:
+#     if guesses[i] in clue_for_solution and guesses[i] != clue_for_solution[i]:
 #         ball_count += 1
 # 두 가지 코드 합치기
 # 스트라이크를 판단하는 코드와 볼을 판단하는 코드를 합쳐 봅시다.
 #
 #
 # for i in range(3):
-#     if guesses[i] == solution[i]:
+#     if guesses[i] == clue_for_solution[i]:
 #         strike_count += 1
 #
 # for i in range(3):
-#     if guesses[i] in solution and guesses[i] != solution[i]:
+#     if guesses[i] in clue_for_solution and guesses[i] != clue_for_solution[i]:
 #         ball_count += 1
 # 이렇게 해도 되지만, 반복문을 한 번만 돌면 더 효율적이겠죠?
 #
 #
 # for i in range(3):
-#     if guesses[i] == solution[i]:
+#     if guesses[i] == clue_for_solution[i]:
 #         strike_count += 1
-#     if guesses[i] in solution and guesses[i] != solution[i]:
+#     if guesses[i] in clue_for_solution and guesses[i] != clue_for_solution[i]:
 #         ball_count += 1
 # 심지어 이것보다 더 깔끔하게 작성할 수도 있습니다. if문의 조건 부분을 통과하지 못했다는 것은 어떤 의미일까요? guesses의 인덱스 i 값이 solution의 인덱스 i 값과 다르다는 뜻이겠죠? 그러면 elif문을 사용해서 조건 부분을 아래 코드처럼 단순화할 수 있습니다.
 #
 #
 # for i in range(3):
-#     if guesses[i] == solution[i]:
+#     if guesses[i] == clue_for_solution[i]:
 #         strike_count += 1
-#     elif guesses[i] in solution:
+#     elif guesses[i] in clue_for_solution:
 #         ball_count += 1
 # 모범 답안
 #
-# def get_score(guesses, solution):
+# def get_score(guesses, clue_for_solution):
 #     strike_count = 0
 #     ball_count = 0
 #
 #     for i in range(3):
-#         if guesses[i] == solution[i]:
+#         if guesses[i] == clue_for_solution[i]:
 #             strike_count += 1
-#         elif guesses[i] in solution:
+#         elif guesses[i] in clue_for_solution:
 #             ball_count += 1
 #
 #     return strike_count, ball_count
