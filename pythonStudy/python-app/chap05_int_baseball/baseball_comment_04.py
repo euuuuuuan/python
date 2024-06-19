@@ -170,14 +170,14 @@ while True:
 #     return new_guess
 #
 #
-# def get_score(guesses, clue_for_solution):
+# def get_score(guesses, clue-for-solution):
 #     strike_count = 0
 #     ball_count = 0
 #
 #     for i in range(3):
-#         if guesses[i] == clue_for_solution[i]:
+#         if guesses[i] == clue-for-solution[i]:
 #             strike_count += 1
-#         elif guesses[i] in clue_for_solution:
+#         elif guesses[i] in clue-for-solution:
 #             ball_count += 1
 #
 #     return strike_count, ball_count
