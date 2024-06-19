@@ -14,3 +14,20 @@ for file in os.listdir('./data'):
     dest = f'./data/{dest_path}/{file}.{ext}' # 이동할 경로
     print(src, '->', dest)
 
+
+# import os
+# from shutil import copy
+#
+# for root, dirs, files in os.walk("./data"):
+#     for file in files:
+#         src = os.path.join(root, file)
+#
+#         file, ext = file.split(".")
+#         name, position = file.split("__")
+#
+#         dest_path = f"./data/{position}"
+#         if not os.path.exists(dest_path):
+#             os.makedirs(dest_path)
+#         dest = f"{dest_path}/{name}.{ext}"
+#
+#         # copy(src, dest)
