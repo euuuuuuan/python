@@ -139,7 +139,7 @@ import requests
 # !pip install openai
 # import openai, os
 #
-# os.environ["OPENAI_API_KEY"] = "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"  # 우표 붙입시다
+# os.environ["OPENAI_API_KEY"] = ""  # 우표 붙입시다
 # openai.api.key = os.getenv("OPEN_API_KEY")
 # client = OpenAI()
 #
