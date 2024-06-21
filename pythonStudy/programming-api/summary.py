@@ -49,8 +49,7 @@
 #
 #
 # customer_handler("양파", "VIP")
-
-
+import OpenAI
 # def customer_handler(name, ranking, language="ko"):
 #     # 월클 VIP 관!
 #     greetings = {
@@ -70,31 +69,93 @@
 # customer_handler("양파", "VIP")
 #
 #
-def simple_calculator(operation, a, b):
-    """
-    기본 산술 연산을 수행하는 간단한 계산기 함수입니다.
+# def simple_calculator(operation, a, b):
+#     """
+#     기본 산술 연산을 수행하는 간단한 계산기 함수입니다.
+#
+#     인수:
+#     operation (str): 수행할 연산, 'add', 'substract', 'multiply', 또는 'divide'가 될 수 있습니다.
+#     a (float): 첫 번째 숫자,
+#     b (float): 두 번째 숫자.
+#
+#     반환값:
+#     float 또는 str: 산술 연산의 결과 또는 오류 메시지.
+#     """
+#     if operation == 'add':
+#         return a + b
+#     elif operation == 'substract':
+#         return a - b
+#     elif operation == 'multiply':
+#         return a * b
+#     elif operation == 'divide':
+#         if b == 0:
+#             return "오류: 0으로 나누기는 허용되지 않습니다."
+#         else:
+#             return a / b
+#     else:
+#         return "잘못된 연산입니다. 'add', 'substract', 'multiply', 'divide' 중에서 선택해주세요."
+#
+#
+# print(simple_calculator('add', 5, 3))
 
-    인수:
-    operation (str): 수행할 연산, 'add', 'substract', 'multiply', 또는 'divide'가 될 수 있습니다.
-    a (float): 첫 번째 숫자,
-    b (float): 두 번째 숫자.
 
-    반환값:
-    float 또는 str: 산술 연산의 결과 또는 오류 메시지.
-    """
-    if operation == 'add':
-        return a + b
-    elif operation == 'substract':
-        return a - b
-    elif operation == 'multiply':
-        return a * b
-    elif operation == 'divide':
-        if b == 0:
-            return "오류: 0으로 나누기는 허용되지 않습니다."
-        else:
-            return a / b
-    else:
-        return "잘못된 연산입니다. 'add', 'substract', 'multiply', 'divide' 중에서 선택해주세요."
+# REST API 란 무엇인가?
+
+import requests
+
+# # 냥 집사로서의 소양 증폭을 위한 catfact
+# response = requests.get("https://catfact.ninja/fact")  # 해당 페이지가서 하나를 주세요.
+#
+# # 200은 성공이라는 뜻. 근데 안에 뭐가 들었는데?
+# print(response)
+#
+# # 선물포장 뜯어봅시다.
+# print(response.json())
+#
+# # 알맹이만 줘봐.
+# print(response.json()['fact'])
+# print(response.json()['length '])
 
 
-print(simple_calculator('add', 5, 3))
+# def get_cat_fact():
+#     url = 'https://catfact.ninja/fact'
+#     try:
+#         response = requests.get(url)
+#         response.raise_for_status()  # Raises an HTTPError if the response status code is 4XX or 5XX
+#         cat_fact = response.json()  # Convert the response to JSON
+#         return cat_fact['fact']
+#     except requests.RequestException as e:  # Handles exceptions
+#         print(f"An error occurred: {e}")
+#         return None
+#
+# # Example usage
+# cat_fact = get_cat_fact()
+# if cat_fact:
+#     print(f"냥이 팩트입니다. {cat_fact}")
+# else:
+#     print("에러 났습니다.")
+
+# AI API 불러오기 (REST API)
+# !pip install openai
+# import openai, os
+#
+# os.environ["OPENAI_API_KEY"] = "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"  # 우표 붙입시다
+# openai.api.key = os.getenv("OPEN_API_KEY")
+# client = OpenAI()
+#
+# response = client.chat.completions.create(
+#     model="gpt-4",
+#     messages=[
+#         {
+#             "role": "user",
+#             "content": "평범한 고등학생이 이세계에서 귀여운 먼치킨 고양이로 활동하는 내용의 웹소설 시놉시스를 만들어줘."
+#         }
+#     ],
+#     temperatuer=1,
+#     max_toeken=3000,
+#     top_p=1,
+#     frequency_penalty=0,
+#     presence_penalty=0
+# )
+# print(response)
+
