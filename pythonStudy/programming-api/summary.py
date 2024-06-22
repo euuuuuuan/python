@@ -49,7 +49,8 @@
 #
 #
 # customer_handler("양파", "VIP")
-import OpenAI
+
+import numpy as np
 # def customer_handler(name, ranking, language="ko"):
 #     # 월클 VIP 관!
 #     greetings = {
@@ -159,3 +160,53 @@ import requests
 # )
 # print(response)
 
+# !pip install --quiet openai
+# OpenAI를 쓸 수 있도록 키 세팅
+# import os, openai
+# import numpy as np
+# from dotenv import load_dotenv
+# from openai import OpenAI
+#
+# client = OpenAI()
+# # print(os.environ)
+# load_dotenv()
+#
+# # 키 세팅이 되어 있어야 함.
+# openai.api_key = os.environ["OPENAI_API_KEY"]
+# # openai.api_key = os.getenv("OPEN_API_KEY")
+#
+#
+# def get_embedding(text):
+#     return np.array(client.embeddings.create(
+#         model="text-embedding-ada-002",
+#         input=text,
+#         encoding_format="float"
+#     ).data[0].embedding)
+#
+#
+# # kids_embedding = get_embedding("kids")
+# # kids_korean_embedding = get_embedding("아이들")
+#
+# # 유사도 비교
+# def cosine_similarity(vector_a, vector_b):
+#     # Compute the dot product of vectors a and b
+#     dot_product = np.dot(vector_a, vector_b)
+#
+#     # Compute the norm (magnitude) of each vector
+#     norm_a = np.linalg.norm(vector_a)
+#     norm_b = np.linalg.norm(vector_b)
+#
+#     # Compute the cosine similarity
+#     cosine_similarity = dot_product / (norm_a * norm_b)
+#     return cosine_similarity
+#
+#
+# def get_similarity(w1, w2):
+#     result = round(cosine_similarity(get_embedding(w1), get_embedding(w2)), 2)
+#     print(f"얼마나 가깝나요? {result}")
+#
+#
+# get_similarity("학교", "school")
+# get_similarity("bluetooth", "school")
+#
+# # 임베딩
